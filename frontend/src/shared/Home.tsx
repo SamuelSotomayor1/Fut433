@@ -10,19 +10,19 @@ export const Home = () => {
                 <span className="text-xl font-bold">Fut433</span>
               </div>
               <nav className="hidden md:flex items-center gap-6">
-                <Link to="/" className="text-sm font-medium text-red-600">
+                <Link to="/" className="text-sm font-medium text-green-600">
                   Inicio
                 </Link>
-                <Link to="/equipos" className="text-sm font-medium transition-colors hover:text-red-600">
+                <Link to="/equipos" className="text-sm font-medium transition-colors hover:text-green-600">
                   Equipos
                 </Link>
-                <Link to="/noticias" className="text-sm font-medium transition-colors hover:text-red-600">
+                <Link to="/player" className="text-sm font-medium transition-colors hover:text-green-600">
                   Jugadores
                 </Link>
-                <Link to="/estadisticas" className="text-sm font-medium transition-colors hover:text-red-600">
+                <Link to="/estadisticas" className="text-sm font-medium transition-colors hover:text-green-600">
                   Estadísticas
                 </Link>
-                <Link to="/calendario" className="text-sm font-medium transition-colors hover:text-red-600">
+                <Link to="/calendario" className="text-sm font-medium transition-colors hover:text-green-600">
                   Calendario
                 </Link>
               </nav>
@@ -39,12 +39,12 @@ export const Home = () => {
     
           <main className="flex-1">
             {/* Hero Section */}
-            <section className="w-full py-12 md:py-24 lg:py-32 bg-gradient-to-b from-blue-900 to-blue-950 text-white">
+            <section className="w-full py-12 md:py-24 lg:py-32 bg-gradient-to-b from-green-900 to-green-950 text-white">
               <div className="container mx-auto px-4 md:px-6">
                 <div className="grid gap-6 lg:grid-cols-[1fr_500px] lg:gap-12">
                   <div className="flex flex-col justify-center space-y-4">
                     <div className="space-y-2">
-                      <span className="inline-block rounded-full bg-red-600 px-3 py-1 text-xs font-semibold text-white">
+                      <span className="inline-block rounded-full bg-green-600 px-3 py-1 text-xs font-semibold text-white">
                         Temporada 2025
                       </span>
                       <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none">
@@ -58,7 +58,7 @@ export const Home = () => {
                     <div className="flex flex-col gap-2 min-[400px]:flex-row">
                       <Link
                         to="/equipos"
-                        className="inline-flex h-10 items-center justify-center rounded-md bg-red-600 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-400 focus:ring-offset-2"
+                        className="inline-flex h-10 items-center justify-center rounded-md bg-green-500 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-400 focus:ring-offset-2"
                       >
                         Ver Equipos
                       </Link>
