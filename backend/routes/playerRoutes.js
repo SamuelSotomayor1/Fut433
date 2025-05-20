@@ -2,13 +2,14 @@ const express = require('express');
 const router = express.Router();
 const PlayerModel = require('../models/playerModel');
 
-router.get('/', (req, res) => {
-  PlayerModel.getAll((err, jugadores) => {
-    if (err) {
-      return res.status(500).json({ error: 'Error al obtener jugadores' });
+router.get('/', async (req, res) => {
+  try {
+      const jugadores = await PlayerModel.getAll();
+      res.json(jugadores);                         
+    } catch (error) {
+      console.error('Error en GET /api/player:', error);
+      res.status(500).json({ error: 'Error interno del servidor' });
     }
-    res.json(jugadores);
-  });
 });
 
 module.exports = router;
