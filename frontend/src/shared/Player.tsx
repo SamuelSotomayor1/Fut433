@@ -1,4 +1,30 @@
+import { useEffect, useState } from "react";
+
 export const Player = () => {
+
+    const [jugadores, setJugadores] = useState<Players[]>([]);
+
+    useEffect(() => {
+        fetch('http://localhost:3001/api/jugadores')
+        .then(res => res.json())
+        .then((data: Players[]) => {
+            setJugadores(data);
+        })
+        .catch(err => {
+            console.error('Error al traer jugadores:', err);
+        });
+    }, []);
+  
+        interface Players {
+            id_players: number;
+            nombre: string;
+            club: number;
+            posicion: number;
+            goles: number;
+            asistencias: number;
+            partidos_jugados: number;
+        }
+
         return(
         <>
         <div className="bg-white text-gray-800 p-6 max-w-6xl mx-auto font-sans">
@@ -25,23 +51,23 @@ export const Player = () => {
             <table className="w-full text-sm text-left border">
                 <thead className="bg-gray-200">
                 <tr>
-                    <th className="p-2">Temporada</th>
-                    <th className="p-2">Partidos</th>
-                    <th className="p-2">Minutos</th>
+                    <th className="p-2">Nombre</th>
+                    <th className="p-2">Club</th>
                     <th className="p-2">Goles</th>
                     <th className="p-2">Asistencias</th>
-                    <th className="p-2">T. Amarillas</th>
+                    <th className="p-2">Partidos jugados</th>
                 </tr>
                 </thead>
                 <tbody>
-                    <tr className="border-t">
-                    <td className="p-2"></td>
-                    <td className="p-2"></td>
-                    <td className="p-2"></td>
-                    <td className="p-2"></td>
-                    <td className="p-2"></td>
-                    <td className="p-2"></td>
-                    </tr>
+                    {jugadores.map(player => (
+                        <tr key={player.id_players} className="border-t">
+                            <td className="p-2">{player.nombre}</td>
+                            <td className="p-2">{player.club}</td>
+                            <td className="p-2">{player.goles}</td>
+                            <td className="p-2">{player.asistencias}</td>
+                            <td className="p-2">{player.partidos_jugados}</td>
+                        </tr>
+                    ))}
                 </tbody>
             </table>
         </div>
